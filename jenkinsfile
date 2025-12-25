@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+    
+    environment {
+        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials'
+        DOCKER_IMAGE = '[votre-dockerhub-username]/springpetclinic'
+        SONARQUBE_TOKEN = credentials('sonarqube-token')
+    }
+    
+    stages {
+        stage('Checkout') {
+            // Étape 1
+        }
+        
+        stage('Build & Unit Tests') {
+            // Étape 2
+        }
+        
+        stage('SonarQube Analysis') {
+            // Étape 3
+        }
+        
+        stage('Selenium Tests') {
+            // Étape 4
+        }
+        
+        stage('Build Docker Image') {
+            // Étape 5
+        }
+        
+        stage('Push to Docker Hub') {
+            // Étape 6
+        }
+        
+        stage('Deploy to Kubernetes') {
+            // Étape 7
+        }
+    }
+    
+    post {
+        failure {
+            // Étape 8 : Notification email
+        }
+    }
+}
